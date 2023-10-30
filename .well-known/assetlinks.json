@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nugroho.lzrautosapp",
+      "sha256_cert_fingerprints":
+        ["FA:98:0B:BA:CC:A8:1C:25:9F:7A:D1:CD:D2:A2:EC:16:4B:8B:CD:EE:73:AC:93:A0:CF:AD:F3:CE:AD:F3:2F:1F"]
+    }
+  }
+]

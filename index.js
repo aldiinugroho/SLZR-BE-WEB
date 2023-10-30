@@ -32,6 +32,7 @@ const corsOptions = {
 // DBConnection.connection()
 app.use(express.json())
 app.use(cors())
+app.use('/.well-known', express.static(path.join(__dirname, '/.well-known')));
 
 const v1route = './routes/v1'; // Directory where your route files are stored
 fs.readdirSync(v1route).forEach((file) => {
