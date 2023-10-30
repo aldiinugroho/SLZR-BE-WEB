@@ -9,6 +9,7 @@ const rateLimit = require('express-rate-limit');
 // const DBConnection = require('./config/sequelize')
 const cors = require('cors');
 const secretKey = require('./constant/secretkey');
+var deeplink = require('deeplink-handler');
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -33,6 +34,13 @@ const corsOptions = {
 app.use(express.json())
 app.use(cors())
 app.use('/.well-known', express.static(path.join(__dirname, '/.well-known')));
+app.get(
+    '/deeplink',
+    deeplink({
+        fallback: 'https://play.google.com/store/apps/details?id=com.nugroho.lzrautosapp',
+        android_package_name: 'com.nugroho.lzrautosapp',
+    })
+);
 
 const v1route = './routes/v1'; // Directory where your route files are stored
 fs.readdirSync(v1route).forEach((file) => {
